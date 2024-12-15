@@ -9,10 +9,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('dashboard.promotions.destroy','test')}}" method="post">
+                <form action="{{route('dashboard.promotions.destroy',$promotion->id)}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <input type="hidden" name="id" value="{{$promotion->id}}">
+                    {{-- <input type="hidden" name="id" value="{{$promotion->id}}"> --}}
                     <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من عملية تراجع الطالب ؟ {{$promotion->student->name}}</h5>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>

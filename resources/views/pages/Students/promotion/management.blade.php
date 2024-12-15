@@ -22,9 +22,13 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
 
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete_all">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete_allStudents">
                                    تراجع الكل
                                 </button>
+                                <!-- Deleted inFormation Student -->
+
+
+                                @include('pages.Students.promotion.Delete_all')
                                 <br><br>
 
 
@@ -63,13 +67,15 @@
                                                 <td>
 
                                                     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#Delete_one{{$promotion->id}}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#">تخرج الطالب</button>
+                                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Graduated">تخرج الطالب</button>
                                                 </td>
                                             </tr>
-                                        @include('pages.Students.promotion.Delete_all')
                                         @include('pages.Students.promotion.Delete_one')
+                                        @include('pages.Students.Graduated.onestudent')
                                         @endforeach
+
                                     </table>
+
                                 </div>
                             </div>
                         </div>

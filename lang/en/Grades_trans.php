@@ -19,5 +19,6 @@ return [
     'exists'=>'This field already exists',
     'Delete'=>'Delete',
     'Close' => 'Close',
+    'return'=>'Return'
 
 ];

@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                    <form action="{{route('Fees.update','test')}}" method="post" autocomplete="off">
+                    <form action="{{route('dashboard.fees.update',$fee->id)}}" method="post" autocomplete="off">
                         @method('PUT')
                         @csrf
                         <div class="form-row">
@@ -87,6 +87,13 @@
                             <label for="inputAddress">ملاحظات</label>
                             <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
                                       rows="4">{{$fee->description}}</textarea>
+                        </div>
+                        <div class="form-group col">
+                            <label for="inputZip">نوع الرسوم</label>
+                            <select class="custom-select mr-sm-2" name="Fee_type">
+                                <option value="1" {{$fee->Fee_type==1?'selected' :'' }}>رسوم دراسية</option>
+                                <option value="2" {{$fee->Fee_type==2?'selected' :'' }}>رسوم باص</option>
+                            </select>
                         </div>
                         <br>
 

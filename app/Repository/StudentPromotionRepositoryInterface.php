@@ -12,6 +12,7 @@ interface StudentPromotionRepositoryInterface
 
     public function create();
 
-    public function destroy($request);
+    public function destroy($id);
+    public function destroyAllStudents();
 
 }

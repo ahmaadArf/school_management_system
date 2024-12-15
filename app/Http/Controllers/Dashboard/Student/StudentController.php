@@ -56,6 +56,10 @@ class StudentController extends Controller
     {
         return $this->Student->Delete_Student($id);
     }
+    public function destroyAll()
+    {
+        return $this->Student->destroyAll();
+    }
 
     public function Get_classrooms($id)
     {

@@ -69,6 +69,13 @@
                             <li> <a href="{{route('dashboard.students.index')}}">{{trans('main_trans.list_students')}}</a> </li>
                             <li> <a href="{{route('dashboard.promotions.index')}}">{{trans('main_trans.Students_Promotions')}}</a> </li>
                             <li> <a href="{{route('dashboard.promotions.create')}}">ادارة ترقية الطلاب</a> </li>
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#Graduate students">{{trans('main_trans.Graduate_students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                                <ul id="Graduate students" class="collapse">
+                                    <li> <a href="{{route('dashboard.graduated.create')}}">{{trans('main_trans.add_Graduate')}}</a> </li>
+                                    <li> <a href="{{route('dashboard.graduated.index')}}">{{trans('main_trans.list_Graduate')}}</a> </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
 
@@ -101,19 +108,23 @@
                         </ul>
                     </li>
 
-                    <!-- Accounts-->
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
-                            <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
-                                    class="right-nav-text">{{trans('main_trans.Accounts')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="calendar.html">Events Calendar </a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
-                        </ul>
-                    </li>
+                   <!-- Accounts-->
+                   <li>
+                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
+                        <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
+                                class="right-nav-text">{{trans('main_trans.Accounts')}}</span></div>
+                        <div class="pull-right"><i class="ti-plus"></i></div>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
+                        <li> <a href="{{route('dashboard.fees.index')}}">الرسوم الدراسية</a> </li>
+                        {{-- <li> <a href="{{route('Fees_Invoices.index')}}">الفواتير</a> </li>
+                        <li> <a href="{{route('receipt_students.index')}}">سندات القبض</a> </li>
+                        <li> <a href="{{route('ProcessingFee.index')}}">استبعاد رسوم</a> </li>
+                        <li> <a href="{{route('Payment_students.index')}}">سندت الصرف</a> </li> --}}
+                    </ul>
+                </li>
+
 
                     <!-- Attendance-->
                     <li>

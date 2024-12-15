@@ -9,17 +9,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('Graduated.update','test')}}" method="post" autocomplete="off">
+                <form action="{{route('dashboard.graduated.update',$student->id)}}" method="post" autocomplete="off">
                     @method('PUT')
                     @csrf
-                    <input type="hidden" name="id" value="{{$student->id}}">
-
                     <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من الغاء عملية التخرج ؟</h5>
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>
-                        <button  class="btn btn-danger">{{trans('Students_trans.submit')}}</button>
+                        <button  class="btn btn-success">{{trans('Students_trans.submit')}}</button>
                     </div>
                 </form>
             </div>

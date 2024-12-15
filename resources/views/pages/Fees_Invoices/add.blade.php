@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                        <form class=" row mb-30" action="{{ route('Fees_Invoices.store') }}" method="POST">
+                        <form class=" row mb-30" action="{{ route('dashboard.fees_Invoices.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="repeater">

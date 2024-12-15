@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
-    // use SoftDeletes;
+    use SoftDeletes;
 
     use HasTranslations;
     public $translatable = ['name'];
