@@ -9,10 +9,13 @@ use App\Http\Controllers\Dashboard\ClassroomController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Student\FeesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Dashboard\Student\PaymentController;
 use App\Http\Controllers\Dashboard\Student\StudentController;
 use App\Http\Controllers\Dashboard\Student\GraduatedController;
 use App\Http\Controllers\Dashboard\Student\PromotionController;
 use App\Http\Controllers\Dashboard\Student\FeesInvoicesController;
+use App\Http\Controllers\Dashboard\Student\ProcessingFeeController;
+use App\Http\Controllers\Dashboard\Student\ReceiptStudentController;
 
 // Route::get('/', function () {
 //     return view('dashboard');
@@ -55,6 +58,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::resource('graduated', GraduatedController::class);
             Route::resource('fees', FeesController::class);
             Route::resource('fees_Invoices', FeesInvoicesController::class);
+            Route::resource('receipt_students', ReceiptStudentController::class);
+            Route::resource('processingFee', ProcessingFeeController::class);
+            Route::resource('payment_students', PaymentController::class);
+
+
 
 
 

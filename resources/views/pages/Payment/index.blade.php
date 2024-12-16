@@ -42,7 +42,7 @@
                                             <td>{{ number_format($payment_student->amount, 2) }}</td>
                                             <td>{{$payment_student->description}}</td>
                                                 <td>
-                                                    <a href="{{route('Payment_students.edit',$payment_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{route('dashboard.payment_students.edit',$payment_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$payment_student->id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>

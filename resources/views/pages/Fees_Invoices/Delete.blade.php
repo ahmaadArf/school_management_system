@@ -9,10 +9,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('dashboard.fees_Invoices.destroy','test')}}" method="post">
+                <form action="{{route('dashboard.fees_Invoices.destroy',$Fee_invoice->id)}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <input type="hidden" name="id" value="{{$Fee_invoice->id}}">
+                    {{-- <input type="hidden" name="id" value="{{$Fee_invoice->id}}"> --}}
                     <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد مع عملية الحذف ؟</h5>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>

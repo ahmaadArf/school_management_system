@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    استبعاد رسوم{{$student->name}}
+    استبعاد رسوم {{$student->name}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                    <form method="post"  action="{{ route('ProcessingFee.store') }}" autocomplete="off">
+                    <form method="post"  action="{{ route('dashboard.processingFee.store') }}" autocomplete="off">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

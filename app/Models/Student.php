@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Image;
 use App\Models\MyParent;
+use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -68,10 +69,10 @@ class Student extends Model
     }
 
     // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي
-    // public function student_account()
-    // {
-    //     return $this->hasMany(StudentAccount::class, 'student_id');
-    // }
+    public function student_account()
+    {
+        return $this->hasMany(StudentAccount::class, 'student_id');
+    }
 
    // علاقة بين جدول الطلاب وجدول الحضور والغياب
     // public function attendance()

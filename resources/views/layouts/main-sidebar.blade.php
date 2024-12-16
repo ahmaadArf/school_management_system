@@ -118,10 +118,10 @@
                     </a>
                     <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                         <li> <a href="{{route('dashboard.fees.index')}}">الرسوم الدراسية</a> </li>
-                        {{-- <li> <a href="{{route('Fees_Invoices.index')}}">الفواتير</a> </li>
-                        <li> <a href="{{route('receipt_students.index')}}">سندات القبض</a> </li>
-                        <li> <a href="{{route('ProcessingFee.index')}}">استبعاد رسوم</a> </li>
-                        <li> <a href="{{route('Payment_students.index')}}">سندت الصرف</a> </li> --}}
+                        <li> <a href="{{route('dashboard.fees_Invoices.index')}}">الفواتير</a> </li>
+                        <li> <a href="{{route('dashboard.receipt_students.index')}}">سندات القبض</a> </li>
+                        <li> <a href="{{route('dashboard.processingFee.index')}}">استبعاد رسوم</a> </li>
+                        <li> <a href="{{route('dashboard.payment_students.index')}}">سندت الصرف</a> </li>
                     </ul>
                 </li>
 

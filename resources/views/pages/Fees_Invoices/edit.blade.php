@@ -29,14 +29,15 @@
                         </div>
                     @endif
 
-                    <form action="{{route('Fees_Invoices.update','test')}}" method="post" autocomplete="off">
+                    <form action="{{route('dashboard.fees_Invoices.update',$fee_invoices->id)}}" method="post" autocomplete="off">
+
                         @method('PUT')
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputEmail4">اسم الطالب</label>
                                 <input type="text" value="{{$fee_invoices->student->name}}" readonly name="title_ar" class="form-control">
-                                <input type="hidden" value="{{$fee_invoices->id}}" name="id" class="form-control">
+                                {{-- <input type="hidden" value="{{$fee_invoices->id}}" name="id" class="form-control"> --}}
                             </div>
 
 
