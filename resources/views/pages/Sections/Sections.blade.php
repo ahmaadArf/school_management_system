@@ -35,6 +35,11 @@
                 </div>
             @endif
 
+            @if (session('msg'))
+                    <div class="alert alert-{{ session('type') }}">
+                        {{ session('msg') }}
+                    </div>
+                @endif
             <div class="card card-statistics h-100">
                 <div class="card-body">
                     <div class="accordion gray plus-icon round">

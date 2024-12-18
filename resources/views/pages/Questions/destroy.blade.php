@@ -1,7 +1,7 @@
 <div class="modal fade" id="delete_exam{{$question->id}}" tabindex="-1"
      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form action="{{route('questions.destroy','test')}}" method="post">
+        <form action="{{route('dashboard.questions.destroy','test')}}" method="post">
             {{method_field('delete')}}
             {{csrf_field()}}
             <div class="modal-content">

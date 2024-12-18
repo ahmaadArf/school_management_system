@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('Quizzes.update','test')}}" method="post">
+                            <form action="{{route('dashboard.quizzes.update','test')}}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">
@@ -123,7 +123,7 @@
                 var Grade_id = $(this).val();
                 if (Grade_id) {
                     $.ajax({
-                        url: "{{ URL::to('classes') }}/" + Grade_id,
+                        url: "{{ URL::to('dashboard/classes') }}/" + Grade_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {

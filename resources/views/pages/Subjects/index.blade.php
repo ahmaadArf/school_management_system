@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     قائمة المواد الدراسية
 @stop
@@ -18,10 +17,15 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
+                    @if (session('msg'))
+                    <div class="alert alert-{{ session('type') }}">
+                        {{ session('msg') }}
+                    </div>
+                @endif
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('subjects.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('dashboard.subjects.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة مادة جديدة</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -46,14 +50,14 @@
                                             <td>{{$subject->classroom->Name_Class}}</td>
                                             <td>{{$subject->teacher->Name}}</td>
                                                 <td>
-                                                    <a href="{{route('subjects.edit',$subject->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{route('dashboard.subjects.edit',$subject->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_subject{{ $subject->id }}" title="حذف"><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
 
                                             <div class="modal fade" id="delete_subject{{$subject->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('subjects.destroy','test')}}" method="post">
+                                                    <form action="{{route('dashboard.subjects.destroy','test')}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                     <div class="modal-content">
@@ -92,6 +96,5 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
+
 @endsection

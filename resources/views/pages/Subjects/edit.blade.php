@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('subjects.update','test')}}" method="post" autocomplete="off">
+                            <form action="{{route('dashboard.subjects.update','test')}}" method="post" autocomplete="off">
                                 {{ method_field('patch') }}
                                 @csrf
                                 <div class="form-row">
@@ -95,8 +95,7 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
+
     <script>
         $(document).ready(function () {
             $('select[name="Grade_id"]').on('change', function () {

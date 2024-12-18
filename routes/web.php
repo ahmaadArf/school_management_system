@@ -2,9 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Dashboard\ExamController;
 use App\Http\Controllers\Dashboard\GradeController;
+use App\Http\Controllers\Dashboard\QuizzeController;
 use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\SubjectController;
 use App\Http\Controllers\Dashboard\TeacherController;
+use App\Http\Controllers\Dashboard\QuestionController;
 use App\Http\Controllers\Dashboard\ClassroomController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Student\FeesController;
@@ -13,6 +17,7 @@ use App\Http\Controllers\Dashboard\Student\PaymentController;
 use App\Http\Controllers\Dashboard\Student\StudentController;
 use App\Http\Controllers\Dashboard\Student\GraduatedController;
 use App\Http\Controllers\Dashboard\Student\PromotionController;
+use App\Http\Controllers\Dashboard\Student\AttendanceController;
 use App\Http\Controllers\Dashboard\Student\FeesInvoicesController;
 use App\Http\Controllers\Dashboard\Student\ProcessingFeeController;
 use App\Http\Controllers\Dashboard\Student\ReceiptStudentController;
@@ -61,6 +66,12 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::resource('receipt_students', ReceiptStudentController::class);
             Route::resource('processingFee', ProcessingFeeController::class);
             Route::resource('payment_students', PaymentController::class);
+            Route::resource('attendance', AttendanceController::class);
+            Route::resource('subjects', SubjectController::class);
+            Route::resource('quizzes', QuizzeController::class);
+            Route::resource('questions', QuestionController::class);
+
+
 
 
 

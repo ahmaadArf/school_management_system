@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Image;
 use App\Models\MyParent;
+use App\Models\Attendance;
 use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
@@ -75,8 +76,8 @@ class Student extends Model
     }
 
    // علاقة بين جدول الطلاب وجدول الحضور والغياب
-    // public function attendance()
-    // {
-    //     return $this->hasMany(Attendance::class, 'student_id');
-    // }
+    public function attendance()
+    {
+        return $this->hasMany(Attendance::class, 'student_id');
+    }
 }

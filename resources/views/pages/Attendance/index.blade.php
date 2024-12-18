@@ -36,7 +36,7 @@
 
 
     <h5 style="font-family: 'Cairo', sans-serif;color: red"> تاريخ اليوم : {{ date('Y-m-d') }}</h5>
-    <form method="post" action="{{ route('Attendance.store') }}">
+    <form method="post" action="{{ route('dashboard.attendance.store') }}">
 
         @csrf
         <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"
@@ -70,14 +70,14 @@
                             <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                 <input name="attendences[{{ $student->id }}]" disabled
                                        {{ $student->attendance()->first()->attendence_status == 1 ? 'checked' : '' }}
-                                       class="leading-tight" type="radio" value="presence">
+                                       class="leading-tight" type="radio" value="1">
                                 <span class="text-success">حضور</span>
                             </label>
 
                             <label class="ml-4 block text-gray-500 font-semibold">
                                 <input name="attendences[{{ $student->id }}]" disabled
                                        {{ $student->attendance()->first()->attendence_status == 0 ? 'checked' : '' }}
-                                       class="leading-tight" type="radio" value="absent">
+                                       class="leading-tight" type="radio" value="0">
                                 <span class="text-danger">غياب</span>
                             </label>
 
@@ -85,19 +85,19 @@
 
                             <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                 <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio"
-                                       value="presence">
+                                       value="1">
                                 <span class="text-success">حضور</span>
                             </label>
 
                             <label class="ml-4 block text-gray-500 font-semibold">
                                 <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio"
-                                       value="absent">
+                                       value="0">
                                 <span class="text-danger">غياب</span>
                             </label>
 
                         @endif
 
-                        <input type="hidden" name="student_id[]" value="{{ $student->id }}">
+                        <input type="hidden" name="student_id" value="{{ $student->id }}">
                         <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
                         <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
                         <input type="hidden" name="section_id" value="{{ $student->section_id }}">

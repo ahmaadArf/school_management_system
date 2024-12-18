@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{ route('questions.update','test') }}" method="post" autocomplete="off">
+                            <form action="{{ route('dashboard.questions.update','test') }}" method="post" autocomplete="off">
                                 @method('PUT')
                                 @csrf
                                 <div class="form-row">

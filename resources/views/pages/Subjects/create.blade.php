@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('subjects.store')}}" method="post" autocomplete="off">
+                            <form action="{{route('dashboard.subjects.store')}}" method="post" autocomplete="off">
                                 @csrf
 
                                 <div class="form-row">
@@ -91,7 +91,7 @@
                 var Grade_id = $(this).val();
                 if (Grade_id) {
                     $.ajax({
-                        url: "{{ URL::to('classes') }}/" + Grade_id,
+                        url: "{{ URL::to('dashboard/classes') }}/" + Grade_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {

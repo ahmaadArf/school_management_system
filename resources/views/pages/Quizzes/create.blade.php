@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('Quizzes.store')}}" method="post" autocomplete="off">
+                            <form action="{{route('dashboard.quizzes.store')}}" method="post" autocomplete="off">
                                 @csrf
 
                                 <div class="form-row">
@@ -119,15 +119,13 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
     <script>
         $(document).ready(function () {
             $('select[name="Grade_id"]').on('change', function () {
                 var Grade_id = $(this).val();
                 if (Grade_id) {
                     $.ajax({
-                        url: "{{ URL::to('classes') }}/" + Grade_id,
+                        url: "{{ URL::to('dashboard.classes') }}/" + Grade_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
