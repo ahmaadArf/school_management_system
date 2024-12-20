@@ -5,12 +5,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\ExamController;
 use App\Http\Controllers\Dashboard\GradeController;
 use App\Http\Controllers\Dashboard\QuizzeController;
+use App\Http\Controllers\Dashboard\LibraryController;
 use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\SubjectController;
 use App\Http\Controllers\Dashboard\TeacherController;
 use App\Http\Controllers\Dashboard\QuestionController;
 use App\Http\Controllers\Dashboard\ClassroomController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\OnlineClasseController;
 use App\Http\Controllers\Dashboard\Student\FeesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Student\PaymentController;
@@ -70,6 +73,12 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::resource('subjects', SubjectController::class);
             Route::resource('quizzes', QuizzeController::class);
             Route::resource('questions', QuestionController::class);
+            Route::resource('online_classes', OnlineClasseController::class);
+            Route::get('/indirect', [OnlineClasseController::class,'indirectCreate'])->name('indirect.create');
+            Route::post('/indirect', [OnlineClasseController::class,'storeIndirect'])->name('indirect.store');
+            Route::resource('library', LibraryController::class);
+            Route::get('download_file/{filename}', [LibraryController::class,'downloadAttachment'])->name('downloadAttachment');
+            Route::resource('settings', SettingController::class);
 
 
 

@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     قائمة الكتب
 @stop
@@ -18,10 +17,15 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
+                    @if (session('msg'))
+                    <div class="alert alert-{{ session('type') }}">
+                        {{ session('msg') }}
+                    </div>
+                   @endif
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('library.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('dashboard.library.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة كتاب جديد</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -48,8 +52,8 @@
                                                 <td>{{$book->classroom->Name_Class}}</td>
                                                 <td>{{$book->section->Name_Section}}</td>
                                                 <td>
-                                                    <a href="{{route('downloadAttachment',$book->file_name)}}" title="تحميل الكتاب" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="fas fa-download"></i></a>
-                                                    <a href="{{route('library.edit',$book->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{route('dashboard.downloadAttachment',$book->file_name)}}" title="تحميل الكتاب" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="fas fa-download"></i></a>
+                                                    <a href="{{route('dashboard.library.edit',$book->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_book{{ $book->id }}" title="حذف"><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
@@ -68,6 +72,5 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
+
 @endsection

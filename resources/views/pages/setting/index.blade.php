@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     الاعدادات
 @stop
@@ -30,7 +29,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <form enctype="multipart/form-data" method="post" action="{{route('settings.update','test')}}">
+                <form enctype="multipart/form-data" method="post" action="{{route('dashboard.settings.update','test')}}">
                     @csrf @method('PUT')
                     <div class="row">
                         <div class="col-md-6 border-right-2 border-right-blue-400">
@@ -92,7 +91,7 @@
                                 <label class="col-lg-2 col-form-label font-weight-semibold">شعار المدرسة</label>
                                 <div class="col-lg-9">
                                     <div class="mb-3">
-                                        <img style="width: 100px" height="100px" src="{{ URL::asset('attachments/logo/'.$setting['logo']) }}" alt="">
+                                        <img style="width: 100px" height="100px" src="{{ URL::asset('attachments/setting/'.$setting['logo']) }}" alt="">
                                     </div>
                                     <input name="logo" accept="image/*" type="file" class="file-input" data-show-caption="false" data-show-upload="false" data-fouc>
                                 </div>
@@ -109,6 +108,4 @@
 <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
 @endsection

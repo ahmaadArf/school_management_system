@@ -1,7 +1,7 @@
 <div class="modal fade" id="delete_book{{$book->id}}" tabindex="-1"
      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form action="{{route('library.destroy','test')}}" method="post">
+        <form action="{{route('dashboard.library.destroy','test')}}" method="post">
             @method('delete')
             @csrf
             <div class="modal-content">

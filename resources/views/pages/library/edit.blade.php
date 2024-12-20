@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('library.update','test')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('dashboard.library.update','test')}}" method="post" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
                                 <div class="form-row">

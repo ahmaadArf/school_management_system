@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('online_classes.destroy','test')}}" method="post">
+                <form action="{{route('dashboard.online_classes.destroy','test')}}" method="post">
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="id" value="{{$online_classe->id}}">
