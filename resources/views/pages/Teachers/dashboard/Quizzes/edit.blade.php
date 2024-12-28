@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('quizzes.update','test')}}" method="post">
+                            <form action="{{route('teacher.dashboard.quizzes.update','test')}}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">

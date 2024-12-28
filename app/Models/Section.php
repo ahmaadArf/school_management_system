@@ -30,4 +30,8 @@ class Section extends Model
     {
         return $this->belongsTo(Grade::class,'Grade_id');
     }
+    public function Students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
 }

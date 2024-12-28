@@ -11,5 +11,11 @@ class DashboardController extends Controller
     public function index(){
         return view('dashboard');
     }
+    public function selection(){
+        return view('auth.selection');
+    }
+    public function loginForm($type){
+        return view('auth.login',compact('type'));
+    }
 
 }

@@ -28,8 +28,12 @@
                                 </ul>
                             </div>
                         @endif
-
-                        <form method="post"  action="{{ route('sons.attendance.search') }}" autocomplete="off">
+                        @if (session('msg'))
+                        <div class="alert alert-{{ session('type') }}">
+                            {{ session('msg') }}
+                        </div>
+                       @endif
+                        <form method="post"  action="{{ route('parent.dashboard.sons.attendance.search') }}" autocomplete="off">
                             @csrf
                             <h6 style="font-family: 'Cairo', sans-serif;color: blue">معلومات البحث</h6><br>
                             <div class="row">

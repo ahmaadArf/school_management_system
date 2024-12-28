@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('quizzes.store')}}" method="post" autocomplete="off">
+                            <form action="{{route('teacher.dashboard.quizzes.store')}}" method="post" autocomplete="off">
                                 @csrf
 
                                 <div class="form-row">

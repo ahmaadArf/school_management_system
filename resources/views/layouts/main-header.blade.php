@@ -33,7 +33,7 @@ header start-->
             <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               @if (App::getLocale() == 'ar')
               {{ LaravelLocalization::getCurrentLocaleName() }}
-             <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
+             <img width="30" src="{{ URL::asset('assets/images/flags/palestine.png') }}" alt="">
               @else
               {{ LaravelLocalization::getCurrentLocaleName() }}
               <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
@@ -47,7 +47,6 @@ header start-->
                 @endforeach
             </div>
         </div>
-
         <li class="nav-item fullscreen">
             <a id="btnFullscreen" href="#" class="nav-link"><i class="ti-fullscreen"></i></a>
         </li>
@@ -104,7 +103,7 @@ header start-->
         <li class="nav-item dropdown mr-30">
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">
-                <img src="{{ URL::asset('assets/images/user_icon.png') }}" alt="avatar">
+                <img src="{{ URL::asset('assets/images/teacher.png') }}" alt="avatar">
 
 
             </a>
@@ -125,9 +124,16 @@ header start-->
                         class="badge badge-info">6</span> </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
+                @php
+                    $type='web';
+                    if(Auth::guard('parent')->check())$type='parent';
+                    if(Auth::guard('teacher')->check())$type='teacher';
+                    if(Auth::guard('student')->check())$type='student';
+                @endphp
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="text-danger ti-unlock"></i>{{ __('Sidebar_trans.Logoff') }}</a>
                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
+                    <input type="hidden" name='type' value={{ $type }}>
+                    @csrf
                 </form>
             </div>
         </li>

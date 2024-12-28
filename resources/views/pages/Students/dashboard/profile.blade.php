@@ -36,7 +36,7 @@
                 <div class="col-lg-8">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <form action="{{route('profile-student.update',$information->id)}}" method="post">
+                            <form action="{{route('student.dashboard.profile-student.update',$information->id)}}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

@@ -3,15 +3,17 @@
 namespace App\Models;
 
 use App\Models\Gender;
+use App\Models\Quizze;
 use App\Models\Section;
+use App\Models\Subject;
 use App\Models\Specialization;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Teacher extends Model
+class Teacher extends Authenticatable
 {
     use HasTranslations;
-    public $translatable = ['Name'];
+    public $translatable = ['name'];
     protected $guarded =[];
     // علاقة بين المعلمين والتخصصات لجلب اسم التخصص
     public function specializations()
@@ -30,4 +32,13 @@ class Teacher extends Model
     {
         return $this->belongsToMany(Section::class,'teacher_section');
     }
+    public function Quizzes()
+    {
+        return $this->hasMany(Quizze::class);
+    }
+    public function Subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
 }

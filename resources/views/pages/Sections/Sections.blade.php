@@ -233,7 +233,7 @@
                                                                                                             <option
                                                                                                                 value="{{ $teacher->id }}"
                                                                                                                 {{ in_array($teacher->id, $sectionTeacher) ? 'selected' : '' }}>
-                                                                                                                {{ $teacher->Name }}
+                                                                                                                {{ $teacher->name }}
                                                                                                             </option>
                                                                                                         @endforeach
 
@@ -379,7 +379,7 @@
                                     <select multiple name="teacher_id[]" class="form-control"
                                         id="exampleFormControlSelect2">
                                         @foreach ($teachers as $teacher)
-                                            <option value="{{ $teacher->id }}">{{ $teacher->Name }}</option>
+                                            <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

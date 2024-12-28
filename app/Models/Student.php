@@ -3,14 +3,16 @@
 namespace App\Models;
 
 use App\Models\Image;
+use App\Models\Degree;
 use App\Models\MyParent;
 use App\Models\Attendance;
 use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use SoftDeletes;
 
@@ -79,5 +81,9 @@ class Student extends Model
     public function attendance()
     {
         return $this->hasMany(Attendance::class, 'student_id');
+    }
+    public function degrees()
+    {
+        return $this->hasMany(Degree::class, 'student_id');
     }
 }

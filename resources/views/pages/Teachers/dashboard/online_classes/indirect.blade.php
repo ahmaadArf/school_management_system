@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     اضافة حصة جديدة اوفلاين
 @stop
@@ -29,7 +28,7 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{ route('indirect.teacher.store') }}" autocomplete="off">
+                <form method="post" action="{{ route('teacher.dashboard.indirect.store') }}" autocomplete="off">
                     @csrf
                     <div class="row">
                         <div class="col-md-4">
@@ -133,7 +132,5 @@
 <!-- row closed -->
 @endsection
 @section('js')
-@toastr_js
-@toastr_render
 
 @endsection

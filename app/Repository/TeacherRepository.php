@@ -26,6 +26,7 @@ class TeacherRepository implements TeacherRepositoryInterface{
     try {
             Teacher::create([
                 'Email'=>$request->Email,
+                // 'Password'=>Hash::make($request->Password),
                 'Password'=>Hash::make($request->Password),
                 'Name'=>['en' => $request->Name_en, 'ar' => $request->Name_ar],
                 'Specialization_id'=>$request->Specialization_id,

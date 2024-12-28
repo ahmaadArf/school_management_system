@@ -41,7 +41,7 @@
             <div class="page-title" >
                 <div class="row">
                     <div class="col-sm-6" >
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">مرحبا بك : {{auth()->user()->Name}}</h4>
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">مرحبا بك : {{auth()->user()->name}}</h4>
                     </div><br><br>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('student.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('teacher.dashboard.students.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('sections')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('teacher.dashboard.sections')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse(\App\Models\My_Parent::latest()->take(5)->get() as $parent)
+                                                @forelse(\App\Models\MyParent::latest()->take(5)->get() as $parent)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$parent->Name_Father}}</td>
@@ -256,12 +256,12 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse(\App\Models\Fee_invoice::latest()->take(10)->get() as $section)
+                                                @forelse(\App\Models\Fee_invoice::latest()->take(10)->get() as $invoice)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
-                                                        <td>{{$section->invoice_date}}</td>
-                                                        <td>{{$section->My_classs->Name_Class}}</td>
-                                                        <td class="text-success">{{$section->created_at}}</td>
+                                                        <td>{{$invoice->invoice_date}}</td>
+                                                        <td>{{$invoice->classroom->Name_Class}}</td>
+                                                        <td class="text-success">{{$invoice->created_at}}</td>
                                                     </tr>
                                                 @empty
                                                     <tr>
@@ -280,8 +280,9 @@
                     </div>
                 </div>
             </div>
+            @include('pages.Calendar.calendar')
 
-            <livewire:calendar />
+            {{-- <livewire:calendar /> --}}
 
             <!--=================================
  wrapper -->

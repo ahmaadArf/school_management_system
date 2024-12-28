@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Degree;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -39,5 +40,14 @@ class Quizze extends Model
     public function section()
     {
         return $this->belongsTo(Section::class, 'section_id');
+    }
+    public function Questions()
+    {
+        return $this->hasMany(Question::class, );
+    }
+
+    public function degree()
+    {
+        return $this->hasOne(Degree::class);
     }
 }

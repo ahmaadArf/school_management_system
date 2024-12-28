@@ -59,7 +59,7 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Name_ar') }}</label>
                                     <input type="text" name="Name_ar"
-                                        value="{{ $teacher->getTranslation('Name', 'ar') }}" class="form-control">
+                                        value="{{ $teacher->getTranslation('name', 'ar') }}" class="form-control">
                                     @error('Name_ar')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -67,7 +67,7 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Name_en') }}</label>
                                     <input type="text" name="Name_en"
-                                        value="{{ $teacher->getTranslation('Name', 'en') }}" class="form-control">
+                                        value="{{ $teacher->getTranslation('name', 'en') }}" class="form-control">
                                     @error('Name_en')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

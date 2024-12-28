@@ -18,6 +18,11 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
+                    @if (session('msg'))
+                    <div class="alert alert-{{ session('type') }}">
+                        {{ session('msg') }}
+                    </div>
+                   @endif
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
@@ -48,14 +53,7 @@
                                                 <td>{{$student->classroom->Name_Class}}</td>
                                                 <td>{{$student->section->Name_Section}}</td>
                                                 <td>
-                                                    <div class="dropdown show">
-                                                        <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            العمليات
-                                                        </a>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="{{route('sons.results',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;عرض نتائج الاختبارات</a>
-                                                        </div>
-                                                    </div>
+                                                    <a class="dropdown-item" href="{{route('parent.dashboard.sons.results',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;عرض نتائج الاختبارات</a>
                                                 </td>
                                             </tr>
                                         @endforeach

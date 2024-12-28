@@ -29,7 +29,7 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{ route('online_zoom_classes.store') }}" autocomplete="off">
+                <form method="post" action="{{ route('teacher.dashboard.online_zoom_classes.store') }}" autocomplete="off">
                     @csrf
                     <div class="row">
                         <div class="col-md-4">

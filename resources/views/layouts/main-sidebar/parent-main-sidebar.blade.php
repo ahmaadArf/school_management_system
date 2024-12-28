@@ -2,7 +2,7 @@
     <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <!-- menu item Dashboard-->
         <li>
-            <a href="{{ route('dashboard.Students') }}">
+            <a href="{{ route('parent.dashboard.index') }}">
                 <div class="pull-left"><i class="ti-home"></i><span
                         class="right-nav-text">{{trans('main_trans.Dashboard')}}</span>
                 </div>
@@ -15,26 +15,26 @@
 
         <!-- الابناء-->
         <li>
-            <a href="{{route('sons.index')}}"><i class="fas fa-book-open"></i><span
+            <a href="{{route('parent.dashboard.sons.index')}}"><i class="fas fa-book-open"></i><span
                     class="right-nav-text">الابناء</span></a>
         </li>
 
         <!-- تقرير الحضور والغياب-->
         <li>
-            <a href="{{route('sons.attendances')}}"><i class="fas fa-book-open"></i><span
+            <a href="{{route('parent.dashboard.sons.attendances')}}"><i class="fas fa-book-open"></i><span
                     class="right-nav-text">تقرير الحضور والغياب</span></a>
         </li>
 
         <!-- تقرير المالية-->
         <li>
-            <a href="{{route('student_exams.index')}}"><i class="fas fa-book-open"></i><span
+            <a href="{{route('parent.dashboard.sons.fees')}}"><i class="fas fa-book-open"></i><span
                     class="right-nav-text">تقرير المالية</span></a>
         </li>
 
 
         <!-- Settings-->
         <li>
-            <a href="{{route('profile-student.index')}}"><i class="fas fa-id-card-alt"></i><span
+            <a href="{{route('parent.dashboard.profile.show.parent')}}"><i class="fas fa-id-card-alt"></i><span
                     class="right-nav-text">الملف الشخصي</span></a>
         </li>
 

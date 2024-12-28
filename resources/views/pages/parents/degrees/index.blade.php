@@ -17,6 +17,11 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
+                    @if (session('msg'))
+                    <div class="alert alert-{{ session('type') }}">
+                        {{ session('msg') }}
+                    </div>
+                   @endif
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">

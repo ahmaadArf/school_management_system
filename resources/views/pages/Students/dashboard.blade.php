@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="calendar-main mb-30">
-                <livewire:calendar-student />
+                @include('pages.Calendar.studentcalendar')
             </div>
             <!--=================================
  wrapper -->

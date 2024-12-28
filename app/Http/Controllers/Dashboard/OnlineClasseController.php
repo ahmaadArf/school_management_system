@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use auth;
 use App\Models\Grade;
 use App\Models\OnlineClass;
 use Illuminate\Http\Request;
 use Jubaer\Zoom\Facades\Zoom;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\MeetingZoomTrait;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class OnlineClasseController extends Controller
 {
@@ -46,7 +47,7 @@ class OnlineClasseController extends Controller
                 'Grade_id' => $request->Grade_id,
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
-                'user_id' => 1,
+                'created_by' => Auth::user()->email,
                 'meeting_id' => $meeting['data']['id'],
                 'topic' => $request->topic,
                 'start_time' => $request->start_time,
@@ -71,7 +72,7 @@ class OnlineClasseController extends Controller
                 'Grade_id' => $request->Grade_id,
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
-                'user_id' => 1,
+                'created_by' => Auth::user()->email,
                 'meeting_id' => $request->meeting_id,
                 'topic' => $request->topic,
                 'start_time' => $request->start_time,
@@ -89,22 +90,6 @@ class OnlineClasseController extends Controller
     }
 
 
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
 
     public function destroy(Request $request)

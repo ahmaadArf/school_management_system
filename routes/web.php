@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\ExamController;
 use App\Http\Controllers\Dashboard\GradeController;
@@ -9,15 +11,16 @@ use App\Http\Controllers\Dashboard\LibraryController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\SubjectController;
-use App\Http\Controllers\Dashboard\TeacherController;
 use App\Http\Controllers\Dashboard\QuestionController;
 use App\Http\Controllers\Dashboard\ClassroomController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\OnlineClasseController;
 use App\Http\Controllers\Dashboard\Student\FeesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Dashboard\Student\PaymentController;
 use App\Http\Controllers\Dashboard\Student\StudentController;
+use App\Http\Controllers\Dashboard\Teacher\TeacherController;
 use App\Http\Controllers\Dashboard\Student\GraduatedController;
 use App\Http\Controllers\Dashboard\Student\PromotionController;
 use App\Http\Controllers\Dashboard\Student\AttendanceController;
@@ -25,27 +28,16 @@ use App\Http\Controllers\Dashboard\Student\FeesInvoicesController;
 use App\Http\Controllers\Dashboard\Student\ProcessingFeeController;
 use App\Http\Controllers\Dashboard\Student\ReceiptStudentController;
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 require __DIR__ . '/auth.php';
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
-Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth'])->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::prefix('dashboard')->name('dashboard.')->group(function () {
+require __DIR__ . '/student.php';
+require __DIR__ . '/teacher.php';
+require __DIR__ . '/parent.php';
+
+Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+        Route::prefix('dashboard')->middleware('auth:web,student,parent,teacher')->name('dashboard.')->group(function () {
 
             Route::resource('grades', GradeController::class);
             Route::resource('classrooms', ClassroomController::class);
@@ -80,14 +72,14 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::get('download_file/{filename}', [LibraryController::class,'downloadAttachment'])->name('downloadAttachment');
             Route::resource('settings', SettingController::class);
 
-
-
-
-
-
-
+            Route::get('/getevents', [EventController::class, 'getEvents'])->middleware('auth:web,teacher')->name('getEvents');
+            Route::post('/addevent', [EventController::class, 'addEvent'])->middleware('auth:web,teacher')->name('addEvent');
+            Route::post('/updateevent', [EventController::class, 'updateEvent'])->middleware('auth::web,teacher')->name('updateEvent');
         });
 
+});
+Route::view('add_parent','livewire.show_Form')->name('add_parent');
+Route::get('/', [DashboardController::class,'selection']);
+Route::get('/login/{type}',[DashboardController::class,'loginForm'])->middleware('guest')->name('login.show');
 
-    });
-Route::view('add_parent','livewire.show_Form');
+

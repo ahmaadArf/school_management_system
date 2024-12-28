@@ -14,13 +14,13 @@
 
         <!-- الاقسام-->
         <li>
-            <a href="{{route('sections')}}"><i class="fas fa-chalkboard"></i><span
+            <a href="{{route('teacher.dashboard.sections')}}"><i class="fas fa-chalkboard"></i><span
                     class="right-nav-text">الاقسام</span></a>
         </li>
 
         <!-- الطلاب-->
         <li>
-            <a href="{{route('student.index')}}"><i class="fas fa-user-graduate"></i><span
+            <a href="{{route('teacher.dashboard.students.index')}}"><i class="fas fa-user-graduate"></i><span
                     class="right-nav-text">الطلاب</span></a>
         </li>
 
@@ -33,8 +33,8 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{route('quizzes.index')}}">قائمة الاختبارات</a></li>
-                <li><a href="#">قائمة الاسئلة</a></li>
+                <li><a href="{{route('teacher.dashboard.quizzes.index')}}">قائمة الاختبارات</a></li>
+                {{-- <li><a href="{{route('teacher.dashboard.questions.index')}}">قائمة الاسئلة</a></li> --}}
             </ul>
 
         </li>
@@ -48,7 +48,7 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                <li> <a href="{{route('online_zoom_classes.index')}}">حصص اونلاين مع زوم</a> </li>
+                <li> <a href="{{route('teacher.dashboard.online_zoom_classes.index')}}">حصص اونلاين مع زوم</a> </li>
             </ul>
         </li>
 
@@ -63,15 +63,15 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="sections-menu1" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{route('attendance.report')}}">تقرير الحضور والغياب</a></li>
-                <li><a href="#">تقرير الامتحانات</a></li>
+                <li><a href="{{route('teacher.dashboard.attendance.report')}}">تقرير الحضور والغياب</a></li>
+                <li><a href="#">تقرير الام.تحانات</a></li>
             </ul>
 
         </li>
 
         <!-- الملف الشخصي-->
         <li>
-            <a href="{{route('profile.show')}}"><i class="fas fa-id-card-alt"></i><span
+            <a href="{{route('teacher.dashboard.profile.show')}}"><i class="fas fa-id-card-alt"></i><span
                     class="right-nav-text">الملف الشخصي</span></a>
         </li>
 

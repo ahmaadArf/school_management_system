@@ -29,7 +29,7 @@
                     </div>
                 @endif
 
-                <form method="post"  action="{{ route('attendance.search') }}" autocomplete="off">
+                <form method="post"  action="{{ route('teacher.dashboard.attendance.search') }}" autocomplete="off">
                     @csrf
                     <h6 style="font-family: 'Cairo', sans-serif;color: blue">معلومات البحث</h6><br>
                     <div class="row">

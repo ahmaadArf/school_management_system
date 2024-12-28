@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{ route('questions.update',$question->id) }}" method="post" autocomplete="off">
+                            <form action="{{ route('teacher.dashboard.questions.update',$question->id) }}" method="post" autocomplete="off">
                                 @method('PUT')
                                 @csrf
                                 <div class="form-row">
@@ -43,6 +43,8 @@
                                     </div>
                                 </div>
                                 <br>
+                                <input type="hidden" value="{{ $question->quizze_id }}" name="quizze_id">
+
 
                                 <div class="form-row">
                                     <div class="col">
